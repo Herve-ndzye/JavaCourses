@@ -13,5 +13,6 @@ public class OOPClass {
 
     OOPClass() {
         this.balance = this.getBalance();
+
     }
 }
