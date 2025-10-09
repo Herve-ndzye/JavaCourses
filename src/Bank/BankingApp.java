@@ -22,38 +22,40 @@ public class BankingApp {
             System.out.println("Or type N to exit the App");
             userInput = c.nextLine();
             switch (userInput){
-                case "1": {
+                case "1":
                     System.out.println("Your balance is " + Holder.getBalance());
                     System.out.println("");
                     break;
-                }
-                case "2": {
+
+                case "2":
                     System.out.println("Enter the amount of money to deposit :");
                     double money = 0;
                     try{
                         money = c.nextDouble();
+                        c.nextLine();
                     }catch(InputMismatchException e){
-                        System.out.println("Enter numbers!!\n");
+                        System.out.println("Enter numbers!!");
+                        c.nextLine();
+                        continue;
                     }
-                    c.nextLine();
                     Holder.deposit(money);
-                    System.out.println("");
                     break;
-                }
-                case "3": {
+                case "3":
                     System.out.println("Enter the amount of money to withdraw :");
                     double money2 = 0;
                     try{
                         money2 = c.nextDouble();
+                        c.nextLine();
                     }catch(InputMismatchException e){
-                        System.out.println("Enter numbers!!\n");
+                        System.out.println("Enter numbers!!");
+                        c.nextLine();
+                        continue;
                     }
-                    c.nextLine();
                     Holder.withdraw(money2);
-                    System.out.println("");
+                    break;
                 }
             }
-        }
         c.close();
+        }
     }
-}
+
