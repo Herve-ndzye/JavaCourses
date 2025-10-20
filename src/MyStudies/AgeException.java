@@ -21,7 +21,7 @@ class mainClass {
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        System.out.println("Checking the execution of codes below catching an Exception.");
     }
 }
 
