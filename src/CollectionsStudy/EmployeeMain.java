@@ -37,3 +37,13 @@ class wildCardsJava{
         }
     }
 }
+class usingMaps{
+    public static void main(String[] args){
+        Map<Employee,String> mp = new HashMap<>();
+        Employee em1 =  new Employee("Herve","Ndizeye",20,30000);
+        Employee em2 = new Employee("Herve","Ndizeye",20,30000);
+        mp.put(em1,"First value");
+        mp.put(em2,"Duplicate");
+        System.out.println(mp);
+    }
+}
