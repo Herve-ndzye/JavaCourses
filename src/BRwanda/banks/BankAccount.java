@@ -90,8 +90,8 @@ enum AccountType {
     CURRENT
 }
 
-class choiceException extends Exception {
-    public choiceException(String message) {
+class negativeMoneyException extends Exception {
+    public negativeMoneyException(String message) {
         super(message);
     }
 }

@@ -43,10 +43,10 @@ public class Reception {
     }
 
     public static void main(String[] args){
-        final String DATA_FILE = "accounts.dat";
+        final String DATA_FILE = "src/BRwanda/banks/accounts.dat";
 
         Scanner c = new Scanner(System.in);
-        DecimalFormat moneyFormat = new DecimalFormat("#,##0.00");
+        DecimalFormat moneyFormat = new DecimalFormat("#,##0.00$");
         ArrayList<BankAccount> accounts = new ArrayList<>();
 
         System.out.print("Enter your account name (letters and spaces only):");
@@ -115,10 +115,15 @@ public class Reception {
                     try{
                         System.out.println("Enter the money to Deposit:");
                         int money = c.nextInt();
+                        if(money > 0){
                         newUser.deposit(money);
                         System.out.println("Your balance is " + moneyFormat.format(newUser.getBalance()));
+                        }else
+                            throw new negativeMoneyException("Input money greater than zero.");
                     }catch(InputMismatchException e){
                         System.out.println("Enter a number !");
+                    } catch (negativeMoneyException e) {
+                        System.out.println(e.getMessage());
                     }
                     c.nextLine();
                     break;
@@ -126,10 +131,15 @@ public class Reception {
                     try{
                         System.out.println("Enter the money to Withdraw:");
                         int mon = c.nextInt();
-                        newUser.withdraw(mon);
-                        System.out.println("Your balance is " + moneyFormat.format(newUser.getBalance()));
+                        if(mon > 0){
+                            newUser.withdraw(mon);
+                            System.out.println("Your balance is " + moneyFormat.format(newUser.getBalance()));
+                        }else
+                            throw new negativeMoneyException("Input money greater than zero.");
                     }catch(InputMismatchException e){
                         System.out.println("Enter number !");
+                    } catch (negativeMoneyException e) {
+                        System.out.println(e.getMessage());
                     }
                     c.nextLine();
                     break;
